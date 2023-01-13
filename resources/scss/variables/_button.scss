@@ -1,0 +1,17 @@
+@mixin buttonType($TxtColor, $fontFamily, $borderColor, $backgroundColor, $btnWidth, $fontSize) {
+    width: $btnWidth;
+    padding: 15px;
+    transition: all 0.5s;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: $TxtColor;
+    font-size: $fontSize;
+    line-height: 1;
+    font-family: $fontFamily;
+    font-weight: 600;
+    border: $borderColor;
+    background-color: $backgroundColor;
+    cursor: pointer;
+}

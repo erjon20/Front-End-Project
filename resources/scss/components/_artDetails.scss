@@ -1,0 +1,208 @@
+@use '../variables/' as v;
+@use '../variables/mediaQueries' as *;
+@use '../variables/button' as *;
+
+.art_details {
+    padding-top: 105px;
+    width: min(90%, 100rem);
+    margin-inline: auto;
+    position: relative;
+    // border: 2px solid red;
+    overflow: hidden;
+
+    @include mediaQ(phone) {
+        width: 95%;
+    }
+
+    .blurbackground{
+background-color: red;
+    }
+
+    .buy_window{
+        position: fixed;
+        // width: 500px;
+        border: 1px solid black;
+        // height: 500px;
+        max-width: 650px;
+        // border: 2px solid red;
+        background-color: white;
+        // filter: blur(20px);
+        margin: 5% auto;
+        left: 0;
+        padding: 30px 20px;
+        // top: 150px;
+        right: 0;
+        text-align: center;
+        z-index: 9;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        a{
+            color: black;
+        }
+
+        #close_menu{
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            font-family: v.$HeaderFont;
+            top: 10px;
+            right: 10px;
+            border: 2px solid black;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: 0.3s all ease;
+
+            &:hover{
+                background-color: black;
+                color: white;
+            }
+        }
+
+        h1{
+            font-family: v.$HeaderFont;
+            font-size: 16px;
+        }
+
+        .buy_details{
+            // border: 2px solid red;
+            border-top: 2px solid gray;
+            border-bottom: 2px solid gray;
+            padding: 10px;
+
+            // table, td, tr{
+            //     // border: 1px solid black;
+            //     // border-collapse: collapse;
+            // }
+
+            td{
+                width: 33%;
+                font-family: v.$NormalFont;
+
+                img{
+                    width: 200px;
+                    object-fit: cover;
+                }
+            }
+
+            table{
+                width: 100%;
+            }
+            
+        }
+        .buy_total{
+            justify-self: flex-end;
+            align-self: flex-end;
+            // border: 2px solid red;
+        }
+
+        input[type='submit']{
+            @include buttonType(
+                black,
+                v.$HeaderFont,
+                2px solid black,
+                white,
+                140px,
+                12px
+            );
+            align-self: center;
+            padding: 6px 12px;
+
+            &:hover {
+                background-color: black;
+                color: white;
+            }
+        }
+    }
+
+    &__img {
+        display: flex;
+        justify-content: center;
+        // border: 2px solid red;
+        max-height: 400px;
+
+        img {
+            // min-width: 200px;
+            // max-width: 800px;
+            // width: 100%;
+            object-fit: contain;
+
+            @include mediaQ(tablet){
+                width: 100%;
+            }
+        }
+    }
+
+    &__desc {
+        &__header {
+            display: flex;
+            margin-top: 50px;
+            // border: 2px solid red;
+            border-top: 2px solid gray;
+            align-items: center;
+            position: relative;
+
+            &__title {
+                display: flex;
+                flex-direction: column;
+                font-family: v.$HeaderFont;
+            }
+
+            button{
+                border: 0px;
+                background-color: transparent;
+                margin-left: 15px;
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+            }
+
+            i {
+                font-size: 40px;
+                cursor: pointer;
+            }
+
+            .pl {
+                padding-left: 50px;
+            }
+
+            .fa-cart-arrow-down {
+                padding-left: 20px;
+            }
+
+            .download_btn {
+                position: absolute;
+                right: 50px;
+
+                @include mediaQ(phone){
+                    position: relative;
+                    right: 0;
+                    padding-left: 20px;
+                }
+            }
+        }
+
+        &__description {
+            p {
+                font-family: v.$NormalFont;
+            }
+        }
+
+        &__data {
+            margin-top: 30px;
+            font-family: v.$NormalFont;
+
+            ul {
+                list-style-type: none;
+            }
+        }
+    }
+}
+
+
+.visibilityHidden{
+ display: none !important;
+}

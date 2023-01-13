@@ -1,0 +1,24 @@
+@use './components/nav';
+@use './components/footer';
+@use './components/home';
+@use './components/auth';
+@use './components/gallery';
+@use './components/feedback';
+@use './components/artDetails';
+@use './components/userSettings';
+@use './components/userProfile';
+@use './components/search';
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-padding-top: 65px; /* navbar height + */
+    scroll-behavior: smooth;
+}

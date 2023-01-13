@@ -1,0 +1,328 @@
+@use '../variables/' as v;
+@use '../variables/mediaQueries' as *;
+@use '../variables/button' as *;
+
+.feedback_container {
+    width: min(70%, 100rem);
+    margin-inline: auto;
+    padding-top: 65px;
+
+    @include mediaQ(laptop) {
+        width: min(80%, 100rem);
+    }
+
+    @include mediaQ(tablet) {
+        width: min(90%, 100rem);
+    }
+
+    @include mediaQ(phone) {
+        width: min(95%, 100rem);
+    }
+
+    .feedback_form {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+
+        .feedback_intro {
+            padding: 10px;
+
+            h1 {
+                font-family: v.$HeaderFont;
+            }
+
+            p {
+                font-family: v.$NormalFont;
+                padding-bottom: 10px;
+                color: gray;
+                border-bottom: 2px solid #000;
+            }
+        }
+
+        .feedback_q {
+            text-align: center;
+            font-family: v.$HeaderFont;
+            font-size: 22px;
+        }
+
+        .fb_emotions {
+            width: 100%;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+
+            .label_exp {
+                font-family: v.$HeaderFont;
+                cursor: pointer;
+                text-align: center;
+                width: 50px;
+                height: 50px;
+                font-size: 32px;
+                padding: 2px;
+                // margin-top: -7px;
+                margin-bottom: 0;
+
+                &:nth-child(2) {
+                    color: red;
+                }
+
+                &:nth-child(4) {
+                    color: orange;
+                }
+                &:nth-child(6) {
+                    color: yellow;
+                }
+                &:nth-child(8) {
+                    color: lightgreen;
+                }
+                &:nth-child(10) {
+                    color: green;
+                }
+            }
+
+            input[type="radio"] {
+                display: none;
+            }
+
+            input[type="radio"]:checked + label {
+                background-color: rgb(58, 58, 58);
+                color: white;
+            }
+        }
+
+        .feedback_issue {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            .label_exp {
+                font-family: v.$HeaderFont;
+                cursor: pointer;
+                text-align: center;
+                font-size: 18px;
+                padding: 0px 10px;
+                margin-top: -7px;
+                margin-bottom: 0;
+            }
+            input[type="radio"] {
+                display: none;
+            }
+
+            input[type="radio"]:checked + label {
+                background-color: rgb(58, 58, 58);
+                color: white;
+            }
+        }
+
+        .fb_textarea {
+            padding: 10px;
+
+            .feedback_q {
+                text-align: left;
+            }
+
+            textarea {
+                width: 100%;
+                height: 150px;
+                padding: 12px 20px;
+                border: 2px solid rgb(0, 0, 0);
+                background-color: transparent;
+                resize: none;
+            }
+        }
+
+        .fb_btn {
+            padding: 10px;
+            align-self: flex-end;
+            button {
+                @include buttonType(
+                    white,
+                    v.$HeaderFont,
+                    2px solid black,
+                    black,
+                    160px,
+                    16px
+                );
+
+                &:hover {
+                    background-color: #fff;
+                    color: black;
+                }
+            }
+        }
+    }
+
+    .reviews-pt {
+        min-height: 80vh;
+    }
+    .reviews {
+        padding: 10px;
+border: 1px solid v.$teel;
+margin-bottom: 15px;
+
+        &__header{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #000;
+
+            div{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .timer{
+                    color: gray;
+                }
+
+                .star_rating{
+                    display: flex;
+                    gap: 0px;
+                    flex-direction: row;
+
+                    i{
+                        color: yellow;
+                    }
+                }
+            }
+
+            img{
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+            }
+    
+            a {
+                text-decoration: none;
+                font-family: v.$NormalFont;
+                color: v.$teel;
+            }
+        }
+
+   
+
+        p {
+            font-family: v.$NormalFont;
+            max-width: 483px;
+            margin-left: 48px;
+            // border: 2px solid black;
+        }
+
+        h1 {
+            font-family: v.$HeaderFont;
+            font-size: 20px;
+            text-align: center;
+        }
+    }
+}
+
+.p_nav {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination {
+    height: 36px;
+    margin: 0;
+    padding: 0;
+    z-index: -1;
+}
+.page,
+.pagination ul {
+    margin-left: 0;
+    *zoom: 1;
+}
+.pagination ul {
+    padding: 0;
+    display: inline-block;
+    *display: inline;
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.pagination li {
+    display: inline;
+}
+.pagination a {
+    float: left;
+    padding: 0 12px;
+    line-height: 30px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-left-width: 0;
+}
+.pagination .active a,
+.pagination a:hover {
+    background-color: #f5f5f5;
+    color: #94999e;
+}
+.pagination .active a {
+    color: #94999e;
+    cursor: default;
+}
+.pagination .disabled a,
+.pagination .disabled a:hover,
+.pagination .disabled span {
+    color: #94999e;
+    background-color: transparent;
+    cursor: default;
+}
+.pagination li:first-child a,
+.pagination li:first-child span {
+    border-left-width: 1px;
+    -webkit-border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+}
+.pagination li:last-child a {
+    -webkit-border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    border-radius: 0 3px 3px 0;
+}
+.pagination-centered {
+    text-align: center;
+}
+.pagination-right {
+    text-align: right;
+}
+
+.pagination .prev.disabled span {
+    float: left;
+    padding: 0 12px;
+    line-height: 30px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-left-width: 1;
+}
+.pagination .next.disabled span {
+    float: left;
+    padding: 0 12px;
+    line-height: 30px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-left-width: 0;
+}
+.pagination li.active,
+.pagination li.disabled {
+    float: left;
+    padding: 0 12px;
+    line-height: 30px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-left-width: 0;
+}
+.pagination li.active {
+    background: #364e63;
+    color: #fff;
+}
+.pagination li:first-child {
+    border-left-width: 1px;
+}

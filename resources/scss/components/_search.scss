@@ -1,0 +1,103 @@
+@use '../variables/' as v;
+@use '../variables/mediaQueries' as *;
+@use '../variables/button' as *;
+
+.search_container {
+    min-height: 100vh;
+    width: min(70%, 100rem);
+    margin-inline: auto;
+    padding: 25px;
+    padding-top: 65px;
+    font-family: v.$HeaderFont;
+
+    @include mediaQ(laptop) {
+        width: min(80%, 100rem);
+    }
+    @include mediaQ(tablet) {
+        width: min(90%, 100rem);
+    }
+    @include mediaQ(phone) {
+        width: min(95%, 100rem);
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .searched_results {
+        display: flex;
+        margin-top: 50px;
+        flex-wrap: wrap;
+        gap: 30px;
+
+        @include mediaQ(tablet) {
+            justify-content: center;
+        }
+
+        .image {
+            position: relative;
+            width: 200px;
+            z-index: 3;
+
+            button {
+                border: 0px;
+            }
+
+
+            a {
+                text-decoration: none;
+                color: black;
+                &:hover {
+                    .img-title {
+                        &::after {
+                            padding-left: 25px;
+                        }
+                    }
+                }
+
+                img{
+                    height: 175px;
+                    object-fit: contain;
+                }
+            }
+
+            .img-title {
+                font-size: 20px;
+                position: relative;
+                z-index: -1;
+
+                &::after {
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    content: "\f105";
+                    font-size: 17px;
+                    padding-left: 10px;
+                    transition: all ease-in-out 0.5s;
+                }
+            }
+
+            .img-size {
+                margin-top: -5px;
+                color: rgb(131, 131, 131);
+            }
+
+            .artist-name {
+                padding-top: 20px;
+                text-decoration: underline;
+            }
+
+            .img-price {
+                font-size: 16px;
+            }
+
+            .favorite-img {
+                position: absolute;
+                top: 220px;
+                right: 0;
+                z-index: 9912;
+                font-size: 26px;
+                cursor: pointer;
+            }
+        }
+    }
+}

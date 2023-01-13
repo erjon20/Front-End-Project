@@ -1,0 +1,23 @@
+@mixin mediaQ($size) {
+    @if $size == s-phone {
+        @media (max-width: 420px) {
+            @content;
+        }
+    } @else if $size == phone {
+        @media (max-width: 768px) {
+            @content;
+        }
+    } @else if $size == tablet {
+        @media (max-width: 900px) {
+            @content;
+        }
+    } @else if $size == laptop {
+        @media (max-width: 1400px) {
+            @content;
+        }
+    } @else if $size == desktop {
+        @media (min-width: 1800px) {
+            @content;
+        }
+    }
+}

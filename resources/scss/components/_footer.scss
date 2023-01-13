@@ -1,0 +1,115 @@
+@use '../variables/' as v;
+@use '../variables/mediaQueries' as *;
+
+.footer {
+    line-height: 1.5;
+    font-family: v.$HeaderFont;
+    background-color: #ffffff;
+    padding: 70px 0;
+    .container {
+        max-width: 1370px;
+        margin: auto;
+        padding: 0px 40px;
+        .footer-row {
+            display: flex;
+            flex-wrap: wrap;
+            .footer-col {
+                width: 25%;
+                padding: 0 15px;
+
+                @include mediaQ(tablet) {
+                    width: 50%;
+                    margin-bottom: 30px;
+                }
+
+                @include mediaQ(phone) {
+                    width: 100%;
+                }
+
+                h1 {
+                    font-size: 38px;
+                    text-transform: uppercase;
+                    color: black;
+                    cursor: pointer;
+                    text-decoration: underline;
+                    text-decoration-color:white;
+                }
+
+            
+                .footer-title {
+                    text-decoration: underline;
+                    text-decoration-color: white;
+                }
+
+                h2 {
+                    font-size: 22px;
+                    color: #000000;
+                    text-transform: capitalize;
+                    margin-bottom: 35px;
+                    font-weight: 500;
+                    position: relative;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: -10px;
+                        background-color: #555555;
+                        height: 2px;
+                        box-sizing: border-box;
+                        width: 100%;
+                    }
+                }
+
+                ul {
+                    list-style: none;
+
+                    li {
+                        &:not(:last-child) {
+                            margin-bottom: 10px;
+                        }
+
+                        a {
+                            font-size: 16px;
+                            text-transform: capitalize;
+                            text-decoration: none;
+                            font-weight: 300;
+                            color: #000000;
+                            display: block;
+                            transition: all 0.3s ease;
+                            cursor: pointer;
+
+                            &:hover {
+                                color: #494949;
+                                padding-left: 8px;
+                            }
+                        }
+                    }
+                }
+
+                .socialMedia-footer {
+                    display: flex;
+                    // justify-content: space-evenly;
+
+                    a {
+                        width: 90px;
+                        // height: 90px;
+                        font-size: 18px;
+                        background-color: rgba(255, 255, 255, 0.2);
+                        margin: 0 10px 10px 0;
+                        text-align: center;
+                        border-radius: 50%;
+                        color: #000000;
+                        transition: all 0.5s ease;
+                        padding: 5px;
+
+                        &:hover {
+                            transform: scale(1.2);
+                            color: v.$teel;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

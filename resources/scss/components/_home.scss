@@ -1,0 +1,558 @@
+@use '../variables/' as v;
+@use '../variables/mediaQueries' as *;
+@use '../variables/button' as *;
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-family: v.$NormalFont;
+    text-align: justify;
+}
+
+.container-first {
+    min-height: 700px;
+    height: 100vh;
+    background-image: url(../images/big-cat.jpg);
+    /* background-attachment: fixed; */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-clip: border-box;
+    background-size: cover;
+    position: relative;
+
+    @include mediaQ(phone) {
+        min-height: 600px;
+        background-position: -100px;
+    }
+
+    .container-first-text {
+        position: absolute;
+        right: 0;
+        bottom: 70px;
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        margin-right: 100px;
+
+        @include mediaQ(tablet) {
+            margin-right: 30px;
+        }
+
+        @include mediaQ(phone) {
+            margin-right: 0px;
+        }
+    }
+
+    .container1-title {
+        max-width: 750px;
+        margin-top: 100px;
+        margin-bottom: 26px;
+        white-space: normal;
+        word-wrap: break-word;
+        color: rgb(255, 255, 255);
+        font-size: 60px;
+        line-height: 1.1;
+        font-family: v.$HeaderFont;
+        font-weight: 600;
+        align-self: flex-end;
+        padding: 0px 20px;
+        text-align: right;
+
+        @include mediaQ(laptop) {
+            font-size: 40px;
+        }
+
+        @include mediaQ(tablet) {
+            max-width: 576px;
+        }
+
+        @include mediaQ(phone) {
+            font-size: 28px;
+            max-width: 400px;
+            margin-top: 0px;
+        }
+    }
+
+    .container1-txt {
+        min-width: 647px;
+        margin: 0;
+        color: rgb(255, 255, 255);
+        font-size: 26px;
+        line-height: 1.4;
+        text-align: right;
+        padding: 0px 20px;
+        align-self: flex-end;
+
+        @include mediaQ(laptop) {
+            font-size: 20px;
+        }
+
+        @include mediaQ(phone) {
+            min-width: 1px;
+            max-width: 100%;
+            font-size: 16px;
+        }
+    }
+
+    .button-type {
+        @include buttonType(white, v.$HeaderFont, black, black, 300px, 32px);
+        margin-top: 54px;
+        margin-right: 20px;
+        margin-left: 20px;
+        align-self: flex-end;
+
+        @include mediaQ(laptop) {
+            font-size: 24px;
+            width: 250px;
+            padding: 10px;
+        }
+
+        @include mediaQ(phone) {
+            width: 170px;
+            padding: 5px;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+
+        &:hover {
+            background-color: white;
+            color: black;
+            transition: all 0.5s ease-in;
+        }
+    }
+}
+
+/* 
+=============================================================
+
+CATEGORIES CSS
+
+=============================================================
+*/
+
+.container-category {
+    display: flex;
+    flex-direction: column;
+    width: min(70%, 100rem);
+    margin-inline: auto;
+    margin-top: 50px;
+
+    h1{
+        font-family: v.$HeaderFont;
+    }
+
+    .c-title {
+        font-family: v.$HeaderFont;
+        font-size: 28px;
+        padding: 0px 15px;
+    }
+
+    a {
+        transition: all 0.5s;
+        text-decoration: none;
+        color: black;
+        &:hover {
+            color: v.$linkHover;
+        }
+    }
+
+    @include mediaQ(laptop) {
+        width: min(90%, 100rem);
+    }
+
+    .category-row {
+        width: 100%;
+        display: flex;
+        padding-top: 70px;
+        transition: all 0.15s ease-in-out;
+
+        & > * {
+            flex-basis: 100%;
+            transition: all 0.15s ease-in-out;
+            padding: 0px 15px;
+        }
+
+        @include mediaQ(tablet) {
+            flex-direction: column;
+        }
+
+        @include mediaQ(phone) {
+            padding-top: 50px;
+        }
+
+        .category-title {
+            font-family: v.$HeaderFont;
+            border-top: 0.2rem solid rgba(116, 116, 116, 0.3);
+            font-size: 14px;
+            overflow-wrap: break-word;
+            padding-top: 20px;
+            transition: all 0.15s ease-in-out;
+
+            a {
+                transition: all 0.3s;
+                &:hover > i {
+                    padding-left: 15px;
+                }
+
+                i {
+                    transition: all 0.3s;
+                }
+            }
+        }
+
+        .category-img {
+            transition: all 0.15s ease-in-out;
+            padding-top: 20px;
+
+            img{
+                height: 100%;
+            }
+
+            @include mediaQ(tablet) {
+                width: 50%;
+                margin: auto;
+            }
+
+            @include mediaQ(phone) {
+                width: 100%;
+                padding-top: 25px;
+            }
+        }
+    }
+
+    .loadMoreBtn {
+        margin-top: 50px;
+        margin-right: 15px;
+    }
+
+    .button-type-categories {
+        @include buttonType(
+            black,
+            v.$HeaderFont,
+            4px solid black,
+            white,
+            500px,
+            18px
+        );
+        padding: 5px 15px;
+
+        &:hover {
+            background-color: black;
+            color: white;
+            transition: all 0.5s ease-in;
+        }
+    }
+}
+
+/* 
+=============================================================
+
+JOIN US CSS
+
+=============================================================
+*/
+
+.join-us {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.774), rgba(0, 0, 0, 0.5)),
+        url("../images/join-us-section.jpg");
+    margin-top: 50px;
+    min-height: 450px;
+    width: 100%;
+    // height: 600px;
+    padding-bottom: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+    .join-us-div {
+        display: flex;
+        flex-direction: column;
+        width: min(80%, 80rem);
+        margin-inline: auto;
+        justify-content: space-between;
+        padding: 5px 0px;
+        position: relative;
+
+        @include mediaQ(laptop) {
+            width: min(90%, 80rem);
+        }
+
+        h1 {
+            font-family: v.$HeaderFont;
+            padding-top: 30px;
+            text-align: center;
+            color: rgb(255, 255, 255);
+            font-size: 40px;
+            overflow-wrap: break-word;
+
+            @include mediaQ(laptop) {
+                font-size: 35px;
+            }
+        }
+
+        p {
+            font-size: 26px;
+            margin-inline: auto;
+            color: white;
+            width: min(75%, 80rem);
+
+            @include mediaQ(laptop) {
+                width: min(90%, 80rem);
+                font-size: 24px;
+            }
+        }
+
+        a {
+            @include buttonType(
+                black,
+                v.$HeaderFont,
+                4px solid black,
+                white,
+                170px,
+                18px
+            );
+            align-self: flex-end;
+            margin-top: 40px;
+            // position: absolute;
+            // bottom: -70px;
+            // right: 130px;
+
+            &:hover {
+                background-color: black;
+                color: white;
+                border: 4px solid white;
+            }
+        }
+    }
+}
+
+/* 
+=============================================================
+
+OUR GOAL
+
+=============================================================
+*/
+
+.our-goal {
+    display: flex;
+    width: min(70%, 100rem);
+    margin-inline: auto;
+    margin-top: 100px;
+
+    & > * {
+        flex-basis: 100%;
+    }
+
+    @include mediaQ(laptop) {
+        width: min(90%, 100rem);
+    }
+
+    @include mediaQ(tablet) {
+        flex-direction: column;
+        margin-top: 50px;
+    }
+
+    .our-goal-img {
+        padding: 0px 20px;
+        img {
+            max-width: 100%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .our-goal-text {
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+            font-family: v.$HeaderFont;
+            font-size: 34px;
+            padding: 0px 20px;
+
+            @include mediaQ(laptop) {
+                margin-top: 20px;
+            }
+
+            @include mediaQ(phone) {
+                font-size: 28px;
+            }
+        }
+
+        p {
+            font-size: 22px;
+            padding: 0px 20px;
+
+            @include mediaQ(phone) {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+/* 
+=============================================================
+
+OUR TEAM   
+
+=============================================================
+*/
+
+.our-team {
+    margin-top: 100px;
+
+    @include mediaQ(phone) {
+        margin-top: 30px;
+        border-top: 3px solid gray;
+    }
+
+    a {
+        @include buttonType(
+            black,
+            v.$HeaderFont,
+            4px solid black,
+            white,
+            170px,
+            18px
+        );
+        align-self: flex-end;
+        margin-top: 40px;
+        margin-right: 15px;
+
+        &:hover {
+            background-color: black;
+            color: white;
+            border: 4px solid white;
+        }
+
+        margin-bottom: 50px;
+    }
+}
+
+/* 
+=============================================================
+
+NEWS
+
+=============================================================
+*/
+
+.news {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url("../images/news-background.jpg");
+    margin-top: 70px;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    padding: 30px 0px;
+
+    .news-div {
+        display: flex;
+        flex-direction: column;
+        width: min(80%, 90rem);
+        margin-inline: auto;
+        justify-content: space-between;
+        padding: 30px 20px;
+
+        @include mediaQ(phone) {
+            width: min(100%, 90rem);
+        }
+
+        .latest-news {
+            font-size: 35px;
+            font-family: v.$HeaderFont;
+            text-align: center;
+            border-bottom: 5px solid white;
+        }
+
+        .update-news {
+            display: flex;
+            width: 100%;
+
+            & > * {
+                flex-basis: 100%;
+            }
+
+            @include mediaQ(tablet) {
+                flex-direction: column;
+            }
+
+            .news-patch-notes {
+                display: flex;
+                flex-direction: column;
+                padding: 0 20px;
+                padding-top: 20px;
+
+                h1 {
+                    padding-top: 10px;
+                    font-size: 26px;
+                    font-family: v.$HeaderFont;
+                }
+
+                p {
+                    font-size: 18px;
+                }
+            }
+        }
+
+        .newsletter {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding-top: 30px;
+            font-family: v.$HeaderFont;
+
+            p {
+                text-align: center;
+            }
+
+            .newsletter-form {
+                display: flex;
+                width: min(50%, 90rem);
+                padding: 5px;
+                margin-inline: auto;
+
+                @include mediaQ(tablet) {
+                    width: min(80%, 90rem);
+                }
+
+                input[type="email"] {
+                    flex-grow: 2;
+                    width: 100%;
+                    font-size: 20px;
+                    padding: 10px;
+                    border: 1px solid rgb(58, 58, 58);
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius: 5px;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                button[type="submit"] {
+                    line-height: 2;
+                    font-size: 20px;
+                    background: transparent;
+                    cursor: pointer;
+                    border: 0px;
+                    width: 60px;
+                    border: 1px solid rgb(58, 58, 58);
+                    background: white;
+                    color: rgb(0, 0, 0);
+                    border-top-right-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                }
+            }
+        }
+    }
+}
